@@ -878,3 +878,53 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+/* ============================================================
+   My E20 Dentist â€” Emergency dentist page specific styles
+   Loads AFTER styles.css + home.css
+   ============================================================ */
+
+/* ---------- urgent call bar ---------- */
+.urgent-bar { background: var(--e20-navy-dark); color: #fff; }
+.urgent-inner { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 12px 0; flex-wrap: wrap; text-align: center; font-size: var(--fs-body-sm); }
+.urgent-inner .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--e20-gold); flex: 0 0 auto; }
+.urgent-inner strong { font-weight: var(--fw-semibold); }
+.urgent-inner a { color: var(--e20-gold-light); border-bottom: 1px solid rgba(204,185,158,0.5); padding-bottom: 1px; white-space: nowrap; }
+.urgent-inner a:hover { color: #fff; }
+
+/* ---------- hero: phone as the hero action ---------- */
+.hero-phone { display: inline-flex; align-items: center; gap: 16px; background: #fff; border: 1px solid var(--border-warm); border-radius: var(--r-xl); padding: 16px 26px 16px 20px; box-shadow: var(--sh-soft); text-decoration: none; margin-bottom: 20px; transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+.hero-phone:hover { box-shadow: var(--sh-card); transform: translateY(-1px); }
+.hero-phone .ring { width: 46px; height: 46px; border-radius: 50%; background: var(--e20-gold); color: #fff; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.hero-phone .ring svg { width: 20px; height: 20px; }
+.hero-phone .lbl { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--e20-gold); font-weight: var(--fw-semibold); }
+.hero-phone .num { display: block; font-family: var(--font-display); font-size: 26px; color: var(--e20-navy); line-height: 1.1; margin-top: 3px; }
+@media (max-width: 420px) { .hero-phone .num { font-size: 22px; } }
+
+/* ---------- signs of an emergency ---------- */
+.signs-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.sign { background: #fff; border: 1px solid var(--border-warm); border-radius: var(--r-lg); padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; }
+.sign .s-ic { width: 42px; height: 42px; border-radius: var(--r-md); background: var(--e20-cream); color: var(--e20-gold); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.sign .s-ic svg { width: 22px; height: 22px; }
+.sign h3 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-body-lg); letter-spacing: 0; }
+.sign p { font-size: var(--fs-body-sm); color: var(--fg-secondary); }
+@media (max-width: 900px) { .signs-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .signs-grid { grid-template-columns: 1fr; } }
+
+/* ---------- while you wait (first aid) ---------- */
+.wait-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.wait-card { background: #fff; border: 1px solid var(--border-default); border-radius: var(--r-xl); padding: 32px 30px; }
+.wait-card .w-num { font-family: var(--font-display); font-weight: var(--fw-light); font-size: 40px; color: var(--e20-gold-light); line-height: 1; margin-bottom: 16px; }
+.wait-card h3 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-h4); letter-spacing: 0; margin-bottom: 10px; }
+.wait-card p { font-size: var(--fs-body-sm); color: var(--fg-secondary); }
+.wait-warn { margin-top: 28px; display: flex; gap: 14px; align-items: flex-start; background: var(--e20-cream); border-left: 3px solid var(--e20-gold); border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px; }
+.wait-warn svg { width: 20px; height: 20px; color: var(--e20-gold-deep); flex: 0 0 auto; margin-top: 2px; }
+.wait-warn p { font-size: var(--fs-body-sm); color: var(--e20-navy); }
+@media (max-width: 860px) { .wait-grid { grid-template-columns: 1fr; } }
+
+
+/* ---------- floating call pill ---------- */
+.call-pill { position: fixed; right: 24px; bottom: 24px; z-index: 70; display: inline-flex; align-items: center; gap: 12px; background: var(--e20-gold); color: #fff; border-radius: var(--r-pill); padding: 14px 24px 14px 18px; box-shadow: var(--sh-lg); text-decoration: none; font-weight: var(--fw-semibold); font-size: var(--fs-body-sm); letter-spacing: var(--tracking-wide); text-transform: uppercase; transition: background var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+.call-pill:hover { background: var(--e20-gold-deep); transform: translateY(-2px); }
+.call-pill svg { width: 18px; height: 18px; }
+@media (max-width: 520px) { .call-pill { left: 16px; right: 16px; bottom: 16px; justify-content: center; } }
