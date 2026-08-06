@@ -1058,3 +1058,1435 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     margin-top: 4px;
     flex: 0 0 auto;
 }
+
+
+/* ============================================================
+   My E20 Dentist — Home page specific styles
+   Loads AFTER styles.css (reuses its tokens + header/footer/buttons)
+   ============================================================ */
+/* ---------- top announcement strip ---------- */
+.announce {
+    background: var(--e20-navy-dark);
+    color: #fff;
+    font-size: var(--fs-body-sm);
+}
+
+.announce-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 11px 0;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.announce strong {
+    font-weight: var(--fw-semibold);
+}
+
+.announce .pill {
+    background: var(--e20-gold);
+    color: #fff;
+    border-radius: var(--r-pill);
+    padding: 3px 12px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.04em;
+    font-size: var(--fs-caption);
+    white-space: nowrap;
+}
+
+.announce a {
+    color: var(--e20-gold-light);
+    border-bottom: 1px solid rgba(204,185,158,0.5);
+    padding-bottom: 1px;
+    white-space: nowrap;
+}
+
+.announce a:hover {
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .announce .hide-sm {
+        display: none;
+    }
+}
+
+/* ============================================================
+   HERO (navy, punchy)
+   ============================================================ */
+.home-hero {
+    position: relative;
+    background: var(--e20-navy);
+    color: #fff;
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 100% at 85% 0%, rgba(176,140,90,0.22), transparent 55%);
+    pointer-events: none;
+}
+
+/* faint chevron motif, brand signature */
+.home-hero::after {
+    content: "";
+    position: absolute;
+    right: -4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    opacity: 0.06;
+    pointer-events: none;
+    background: conic-gradient(from 45deg at 50% 50%, transparent 0 25%, #fff 25% 26%, transparent 26% 50%, transparent 50% 75%, #fff 75% 76%, transparent 76%);
+    clip-path: polygon(0 0, 55% 50%, 0 100%, 40% 100%, 95% 50%, 40% 0);
+}
+
+.hero-wrap {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+    padding: clamp(48px, 7vw, 104px) 0;
+}
+
+.home-hero .eyebrow {
+    color: var(--e20-gold-light);
+}
+
+.home-hero h1 {
+    color: #fff;
+    font-size: var(--fs-display-xl);
+    font-weight: var(--fw-light);
+    line-height: 1.0;
+    margin-bottom: 26px;
+    letter-spacing: -0.02em;
+}
+
+.home-hero h1 .em {
+    font-style: italic;
+    color: var(--e20-gold-light);
+}
+
+.hero-lead {
+    font-size: var(--fs-body-lg);
+    color: rgba(255,255,255,0.82);
+    max-width: 560px;
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.btn--gold-lg {
+    padding: 16px 16px 16px 30px;
+    font-size: var(--fs-body);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 16px 30px;
+}
+
+.btn--ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+}
+
+.hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-body-sm);
+    color: rgba(255,255,255,0.9);
+    border: 1px solid var(--border-on-dark);
+    border-radius: var(--r-pill);
+    padding: 8px 16px;
+}
+
+.hero-chip svg {
+    width: 14px;
+    height: 14px;
+    color: var(--e20-gold-light);
+}
+
+/* hero capabilities strip (replaces pill chips) */
+.hero-disciplines {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 28px;
+    max-width: 600px;
+}
+
+.hero-disc {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.28);
+}
+
+.hero-disc .d-name {
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+}
+
+.hero-disc .d-sub {
+    font-size: 10px;
+    color: var(--e20-gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .hero-disciplines {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 24px;
+    }
+}
+
+.hero-figure {
+    position: relative;
+}
+
+.hero-figure .frame {
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    box-shadow: var(--sh-lg);
+    aspect-ratio: 5/4;
+}
+
+.hero-figure .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-badge {
+    position: absolute;
+    left: -22px;
+    bottom: -22px;
+    background: #fff;
+    color: var(--e20-navy);
+    border-radius: var(--r-xl);
+    padding: 20px 24px;
+    box-shadow: var(--sh-lg);
+    max-width: 230px;
+}
+
+.hero-badge .num {
+    font-family: var(--font-display);
+    font-weight: var(--fw-light);
+    font-size: 40px;
+    color: var(--e20-navy);
+    line-height: 1;
+}
+
+.hero-badge .lbl {
+    font-size: var(--fs-body-sm);
+    color: var(--fg-secondary);
+    margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+    .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-figure .frame {
+        aspect-ratio: 16/10;
+    }
+
+    .hero-badge {
+        left: 16px;
+        bottom: -18px;
+    }
+}
+
+/* bottom credibility bar of hero */
+.hero-strip {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--border-on-dark);
+}
+
+.hero-strip-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+}
+
+.hero-strip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--fs-body-sm);
+    color: rgba(255,255,255,0.85);
+}
+
+.hero-strip svg {
+    width: 18px;
+    height: 18px;
+    color: var(--e20-gold-light);
+}
+
+/* ============================================================
+   SPECIALIST REFERRAL CENTRE
+   ============================================================ */
+.refer-head {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(28px, 4vw, 64px);
+    align-items: end;
+    margin-bottom: clamp(40px, 5vw, 56px);
+}
+
+.refer-head h2 {
+    font-size: var(--fs-display-md);
+    font-weight: var(--fw-light);
+}
+
+.refer-head .refer-statement {
+    background: var(--e20-navy);
+    color: #fff;
+    border-radius: var(--r-xl);
+    padding: 26px 28px;
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-snug);
+}
+
+.refer-head .refer-statement strong {
+    color: var(--e20-gold-light);
+    font-weight: var(--fw-medium);
+}
+
+.refer-head .refer-statement .sub {
+    display: block;
+    font-size: var(--fs-body-sm);
+    color: rgba(255,255,255,0.7);
+    margin-top: 10px;
+    line-height: var(--lh-normal);
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.spec-card {
+    background: #fff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.spec-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sh-card);
+}
+
+.spec-photo {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: var(--e20-cream);
+}
+
+.spec-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.spec-photo image-slot {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.spec-body {
+    padding: 22px 22px 26px;
+}
+
+.spec-disc {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--e20-gold);
+    font-weight: var(--fw-semibold);
+    margin-bottom: 8px;
+}
+
+.spec-body h3 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-h4);
+    letter-spacing: 0;
+    margin-bottom: 4px;
+}
+
+.spec-role {
+    font-size: var(--fs-body-sm);
+    color: var(--fg-secondary);
+}
+
+.spec-gdc {
+    font-size: var(--fs-caption);
+    color: var(--fg-muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-default);
+}
+
+@media (max-width: 900px) {
+    .refer-head {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spec-grid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 860px) {
+    .spec-grid.three {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .spec-grid.three {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   SMILE MAKEOVER (the why)
+   ============================================================ */
+.makeover-hero {
+    background: var(--e20-cream-warm);
+    overflow: hidden;
+}
+
+.makeover-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+}
+
+.makeover-copy h2 {
+    font-size: var(--fs-display-lg);
+    font-weight: var(--fw-light);
+    line-height: 1.02;
+    margin-bottom: 24px;
+}
+
+.makeover-copy h2 .em {
+    font-style: italic;
+    color: var(--e20-gold);
+}
+
+.makeover-copy .lead {
+    margin-bottom: 22px;
+}
+
+.makeover-copy p + p {
+    margin-top: 16px;
+}
+
+.makeover-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0 34px;
+}
+
+.mk-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border-warm);
+    border-radius: var(--r-pill);
+    padding: 10px 18px;
+    font-size: var(--fs-body-sm);
+    color: var(--e20-navy);
+    font-weight: var(--fw-medium);
+}
+
+.mk-chip svg {
+    width: 16px;
+    height: 16px;
+    color: var(--e20-gold);
+}
+
+/* smile makeover "formula" (replaces pill chips) */
+.mk-formula {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0 36px;
+}
+
+.mk-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 78px;
+}
+
+.mk-item .mk-ic {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1.5px solid var(--e20-gold);
+    color: var(--e20-gold-deep);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mk-item .mk-ic svg {
+    width: 24px;
+    height: 24px;
+}
+
+.mk-item span {
+    font-size: var(--fs-body-sm);
+    color: var(--e20-navy);
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+}
+
+.mk-plus {
+    font-family: var(--font-display);
+    font-weight: var(--fw-light);
+    font-size: 26px;
+    color: var(--e20-gold);
+    margin-top: -22px;
+}
+
+.mk-eq {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-light);
+    font-size: var(--fs-h3);
+    color: var(--e20-gold);
+    margin-top: -22px;
+    line-height: 1.1;
+    max-width: 150px;
+}
+
+@media (max-width: 520px) {
+    .mk-formula {
+        gap: 10px 12px;
+    }
+
+    .mk-item {
+        width: 64px;
+    }
+
+    .mk-item .mk-ic {
+        width: 48px;
+        height: 48px;
+    }
+
+    .mk-plus, .mk-eq {
+        margin-top: 0;
+    }
+}
+
+.makeover-figure {
+    position: relative;
+}
+
+.makeover-figure .frame {
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    box-shadow: var(--sh-card);
+    aspect-ratio: 4/5;
+}
+
+.makeover-figure .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mk-quote {
+    position: absolute;
+    right: -16px;
+    top: 36px;
+    background: var(--e20-navy);
+    color: #fff;
+    border-radius: var(--r-lg);
+    padding: 18px 22px;
+    max-width: 240px;
+    box-shadow: var(--sh-lg);
+    font-family: var(--font-display);
+    font-weight: var(--fw-light);
+    font-size: var(--fs-h4);
+    line-height: var(--lh-snug);
+}
+
+@media (max-width: 900px) {
+    .makeover-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .makeover-figure {
+        order: -1;
+    }
+
+    .mk-quote {
+        display: none;
+    }
+}
+
+/* ============================================================
+   STATS / TRUST
+   ============================================================ */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-default);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    background: #fff;
+}
+
+.stat {
+    padding: 36px 30px;
+    border-right: 1px solid var(--border-default);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat .stat-ic {
+    width: 40px;
+    height: 40px;
+    color: var(--e20-gold);
+    margin-bottom: 16px;
+}
+
+.stat .stat-ic svg {
+    width: 100%;
+    height: 100%;
+}
+
+.stat h3 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-h4);
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}
+
+.stat p {
+    font-size: var(--fs-body-sm);
+    color: var(--fg-secondary);
+}
+
+@media (max-width: 900px) {
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+    .stat:nth-child(1), .stat:nth-child(2) {
+        border-bottom: 1px solid var(--border-default);
+    }
+}
+
+@media (max-width: 520px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border-default);
+    }
+
+    .stat:last-child {
+        border-bottom: none;
+    }
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+    margin-top: clamp(48px,6vw,80px);
+}
+
+.trust-grid .media {
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    box-shadow: var(--sh-card);
+}
+
+.trust-grid .media img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 26px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.trust-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: var(--fs-body-sm);
+    color: var(--fg-body);
+}
+
+.trust-list li svg {
+    width: 16px;
+    height: 16px;
+    color: var(--e20-gold);
+    margin-top: 3px;
+    flex: 0 0 auto;
+}
+
+@media (max-width: 860px) {
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   TREATMENTS OVERVIEW
+   ============================================================ */
+.treat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.treat-card {
+    position: relative;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    color: #fff;
+    isolation: isolate;
+}
+
+.treat-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.treat-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(28,44,74,0.1) 0%, rgba(28,44,74,0.85) 100%);
+}
+
+.treat-card.solid {
+    background: var(--e20-navy);
+}
+
+.treat-card .t-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--e20-gold-light);
+    margin-bottom: 10px;
+}
+
+.treat-card h3 {
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-h3);
+    letter-spacing: 0;
+    margin-bottom: 10px;
+}
+
+.treat-card p {
+    font-size: var(--fs-body-sm);
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+}
+
+.treat-card .t-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    color: #fff;
+}
+
+.treat-card .t-link svg {
+    width: 16px;
+    height: 16px;
+    color: var(--e20-gold-light);
+    transition: transform var(--dur-fast);
+}
+
+.treat-card:hover .t-link svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+    .treat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .treat-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   SERVICE CARDS (general / cosmetic / ortho / implant options)
+   ============================================================ */
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.svc-grid.cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.svc-card {
+    background: #fff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--r-xl);
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.bg-cream .svc-card {
+    border-color: var(--border-warm);
+}
+
+.svc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sh-card);
+}
+
+.svc-ic {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--r-md);
+    background: var(--e20-cream);
+    color: var(--e20-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.svc-ic svg {
+    width: 24px;
+    height: 24px;
+}
+
+.svc-card h3 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-h4);
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}
+
+.svc-card p {
+    color: var(--fg-secondary);
+    font-size: var(--fs-body-sm);
+    margin-bottom: 18px;
+}
+
+.svc-card .t-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--e20-navy);
+}
+
+.svc-card .t-link svg {
+    width: 16px;
+    height: 16px;
+    color: var(--e20-gold);
+    transition: transform var(--dur-fast);
+}
+
+.svc-card:hover .t-link svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+    .svc-grid, .svc-grid.cols-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .svc-grid, .svc-grid.cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* inline benefits row */
+.benefits-row {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 32px;
+}
+
+.benefits-row li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: var(--fs-body);
+    color: var(--fg-body);
+}
+
+.benefits-row li svg {
+    width: 18px;
+    height: 18px;
+    color: var(--e20-gold);
+    flex: 0 0 auto;
+}
+
+/* nervous patients */
+.nervous {
+    background: var(--e20-cream);
+    border-radius: var(--r-2xl);
+    padding: clamp(44px, 5vw, 76px);
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.nervous .ic {
+    width: 56px;
+    height: 56px;
+    color: var(--e20-gold);
+    margin: 0 auto 22px;
+}
+
+.nervous .ic svg {
+    width: 100%;
+    height: 100%;
+}
+
+.nervous h2 {
+    font-weight: var(--fw-light);
+    font-size: var(--fs-display-md);
+    margin-bottom: 18px;
+}
+
+.nervous p {
+    color: var(--fg-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.nervous p + p {
+    margin-top: 14px;
+}
+
+.nervous .btn {
+    margin-top: 30px;
+}
+
+/* FAQ groups (home) */
+.faq-groups {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+}
+
+.faq-group + .faq-group {
+    margin-top: 44px;
+}
+
+.faq-group-title {
+    font-family: var(--font-display);
+    color: var(--e20-navy);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-light);
+    letter-spacing: 0;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.faq-group-title::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--e20-gold);
+    flex: 0 0 auto;
+}
+
+/* feature portrait can host an image-slot (Dr Pattar) */
+.feature-portrait image-slot {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/5;
+}
+
+.feature-points {
+    list-style: none;
+    padding: 0;
+    margin: 26px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-points li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: rgba(255,255,255,0.88);
+}
+
+.feature-points li svg {
+    width: 18px;
+    height: 18px;
+    color: var(--e20-gold-light);
+    margin-top: 4px;
+    flex: 0 0 auto;
+}
+
+.feature-points strong {
+    color: #fff;
+    font-weight: var(--fw-semibold);
+}
+
+/* ============================================================
+   SHARED EXTRAS for treatment / hub pages
+   ============================================================ */
+/* 5-up journey */
+.journey-grid.five {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1000px) {
+    .journey-grid.five {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .journey-grid.five {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* callout / reassurance */
+.callout {
+    background: var(--e20-cream);
+    border: 1px solid var(--border-warm);
+    border-left: 3px solid var(--e20-gold);
+    border-radius: var(--r-lg);
+    padding: 32px 36px;
+}
+
+.reassure {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.reassure h2 {
+    font-weight: var(--fw-light);
+    font-size: var(--fs-display-md);
+    margin-bottom: 18px;
+}
+
+.reassure .lead {
+    font-size: var(--fs-body-lg);
+}
+
+/* why the plan matters (navy points) */
+.plan-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 12px;
+}
+
+.plan-point {
+    border-top: 1px solid var(--border-on-dark);
+    padding-top: 22px;
+}
+
+.plan-point .seq {
+    font-family: var(--font-display);
+    color: var(--e20-gold-light);
+    font-size: var(--fs-body-sm);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plan-point .seq b {
+    color: #fff;
+    font-weight: var(--fw-medium);
+}
+
+.plan-point p {
+    color: rgba(255,255,255,0.82);
+    font-size: var(--fs-body-sm);
+}
+
+@media (max-width: 760px) {
+    .plan-points {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* svc-card with optional learn-more on cream handled already; add link arrow color on cream */
+.svc-card .lm {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--e20-navy);
+}
+
+.svc-card .lm svg {
+    width: 16px;
+    height: 16px;
+    color: var(--e20-gold);
+    transition: transform var(--dur-fast);
+}
+
+.svc-card:hover .lm svg {
+    transform: translateX(4px);
+}
+
+/* before / after example pairs */
+.ba-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.ba-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--sh-soft);
+    min-width: 0;
+}
+
+.ba-pair image-slot {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: block;
+    min-width: 0;
+}
+
+.ba-tags {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: var(--fs-caption);
+    color: var(--fg-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.ba-note {
+    margin-top: 28px;
+    font-size: var(--fs-body-sm);
+    color: var(--fg-muted);
+    font-style: italic;
+}
+
+@media (max-width: 760px) {
+    .ba-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   FEE TABLE (shared - emergency, hygiene, treatment pages)
+   ============================================================ */
+.fees {
+    background: #fff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: var(--sh-card);
+}
+
+.fee-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 30px;
+    background: var(--e20-navy);
+    color: #fff;
+}
+
+.fee-head span {
+    font-size: 11px;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    font-weight: var(--fw-semibold);
+    color: var(--e20-gold-light);
+}
+
+.fee-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 30px;
+}
+
+.fee-row + .fee-row {
+    border-top: 1px solid var(--border-default);
+}
+
+.fee-row .f-name {
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    color: var(--e20-navy);
+    line-height: var(--lh-snug);
+}
+
+.fee-row .f-sub {
+    font-size: var(--fs-body-sm);
+    color: var(--fg-muted);
+    margin-top: 5px;
+    max-width: 34ch;
+}
+
+.fee-row .f-price {
+    font-family: var(--font-display);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-h3);
+    color: var(--e20-navy);
+    white-space: nowrap;
+    flex: 0 0 auto;
+    letter-spacing: -0.01em;
+}
+
+.fee-row .f-price.quote {
+    font-size: var(--fs-body);
+    color: var(--fg-secondary);
+    font-weight: var(--fw-regular);
+}
+
+.fee-foot {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 20px 30px;
+    background: var(--e20-cream);
+    border-top: 1px solid var(--border-warm);
+}
+
+.fee-foot svg {
+    width: 17px;
+    height: 17px;
+    color: var(--e20-gold);
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+.fee-foot p {
+    font-size: var(--fs-body-sm);
+    color: var(--fg-secondary);
+}
+
+.fee-note {
+    margin-top: 24px;
+    font-size: var(--fs-body-sm);
+    color: var(--fg-secondary);
+}
+
+@media (max-width: 520px) {
+    .fee-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* ============================================================
+   GUM DISEASE PROGRESSION (shared)
+   ============================================================ */
+.stages {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.stage {
+    background: #fff;
+    border: 1px solid var(--border-warm);
+    border-radius: var(--r-xl);
+    padding: 34px 32px;
+}
+
+.stage.severe {
+    border-color: var(--e20-gold);
+}
+
+.stage .s-step {
+    font-size: 11px;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--e20-gold);
+    font-weight: var(--fw-semibold);
+    margin-bottom: 12px;
+}
+
+.stage h3 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-h3);
+    letter-spacing: 0;
+    margin-bottom: 12px;
+}
+
+.stage p {
+    color: var(--fg-secondary);
+    font-size: var(--fs-body);
+}
+
+.stage-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--e20-gold-light);
+}
+
+.stage-arrow svg {
+    width: 32px;
+    height: 32px;
+}
+
+.stages-note {
+    margin-top: 28px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--e20-cream);
+    border-left: 3px solid var(--e20-gold);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+    padding: 20px 24px;
+}
+
+.stages-note svg {
+    width: 20px;
+    height: 20px;
+    color: var(--e20-gold-deep);
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+.stages-note p {
+    font-size: var(--fs-body-sm);
+    color: var(--e20-navy);
+}
+
+@media (max-width: 860px) {
+    .stages {
+        grid-template-columns: 1fr;
+    }
+
+    .stage-arrow {
+        transform: rotate(90deg);
+        padding: 4px 0;
+    }
+}
